@@ -265,7 +265,7 @@ def main():
 	fun_flush_print("          %d heterozygous sites being used for phasing (%d filtered, %d indels excluded, %d unphased)"%(het_count,filter_count,total_indels_excluded,unphased_count));
 
 	if het_count == 0:
-		fatal_error("No heterozygous sites that passed all filters were included in the analysis, phASER cannot continue. Check blacklist and pass_only arguments.");
+		non_fatal_error("No heterozygous sites that passed all filters were included in the analysis, phASER cannot continue. Check blacklist and pass_only arguments.");
 
 	fun_flush_print("#2. Retrieving reads that overlap heterozygous sites...");
 
@@ -1791,6 +1791,9 @@ def fun_flush_print(text):
 def fatal_error(text):
 	fun_flush_print("     FATAL ERROR: "+text);
 	sys.exit(1)
+	
+def non_fatal_error(text):
+	fun_flush_print("     FATAL ERROR: "+text);
 
 def print_debug(text):
 	if args.debug == 1:
