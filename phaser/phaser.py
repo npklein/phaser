@@ -337,7 +337,8 @@ def main():
 		fun_flush_print("          mapping reads to variants...");
 		pool_input = [x + [samtools_arg,bam,mapq,isize] for x in mapping_files];
 		result_files = parallelize(call_mapping_script, pool_input);
-
+		print('results_files:')
+		print(result_files)
 		# process the result
 		
 		# A determine if we need to calculate alignment score cutoff
@@ -395,8 +396,8 @@ def main():
 		bam_index += 1;
 		
 		# delete temp mapping files
-		for xfile in result_files:
-			os.remove(xfile);
+		#for xfile in result_files:
+		#	os.remove(xfile);
 	
 	#cleanup temp files
 	os.remove(mapper_out.name);
