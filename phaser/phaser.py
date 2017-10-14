@@ -427,7 +427,7 @@ def main():
 			base_mismatch_count += mis_matches;
 
 	if base_match_count == 0:
-		fatal_error("No reads could be matched to variants. Please double check your settings and input files. Common reasons for this occurring include: 1) MAPQ or BASEQ set too conservatively 2) BAM and VCF have different chromosome names (IE 'chr1' vs '1').");
+		non_fatal_error("No reads could be matched to variants. Please double check your settings and input files. Common reasons for this occurring include: 1) MAPQ or BASEQ set too conservatively 2) BAM and VCF have different chromosome names (IE 'chr1' vs '1').");
 
 	# probability of generating a random base
 	global noise_e;
