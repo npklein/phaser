@@ -1793,7 +1793,8 @@ def fatal_error(text):
 	sys.exit(1)
 	
 def non_fatal_error(text):
-	fun_flush_print("     FATAL ERROR: "+text);
+	fun_flush_print("     NON FATAL ERROR: "+text);
+	sys.exit(0)
 
 def print_debug(text):
 	if args.debug == 1:
