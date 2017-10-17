@@ -1786,10 +1786,10 @@ def dict_from_info(info_field):
 
 def fun_flush_print(text, std='out'):
     if std == 'out':
-    	sys.stdout.write(text);
+    	sys.stdout.write(text+'\n');
     	sys.stdout.flush();
     elif std == 'err':
-        sys.stderr.write(text)
+        sys.stderr.write(text+'\n')
         sys.stderr.flush()
     else:
         raise RuntimeError('std only implemented for out and err, was '+std)
