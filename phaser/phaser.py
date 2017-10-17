@@ -1784,14 +1784,20 @@ def dict_from_info(info_field):
 
 	return(out_dict);
 
-def fun_flush_print(text):
-	print(text);
-	sys.stdout.flush();
+def fun_flush_print(text, std='out'):
+    if std == 'out':
+    	sys.stdout.write(text);
+    	sys.stdout.flush();
+    elif std == 'err':
+        sys.stderr.write(text)
+        sys.stderr.flush()
+    else:
+        raise RuntimeError('std only implemented for out and err, was '+std)
 
 def fatal_error(text):
-	fun_flush_print("     FATAL ERROR: "+text);
+	fun_flush_print("     FATAL ERROR: "+text, 'err');
 	sys.exit(1)
-	
+
 def non_fatal_error(text):
 	fun_flush_print("     NON FATAL ERROR: "+text);
 	sys.exit(0)
